@@ -1,0 +1,61 @@
+  <div class="container col-11 mt-5">
+    <div class="customTableStyle">
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand"><img src="assets/svg/ico_users.svg" alt="users"> Users</a>
+        <form class="form-inline">
+          <input class="form-control mr-sm-2 CustomImage" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-warning text-white" type="button" data-toggle="modal" data-target="#staticBackdropadd"><img src="assets/svg/ico_add.svg" alt="Add"> Add User</button>
+        </form>
+      </nav>
+    <table class="table table-striped ">
+        <thead>
+            <tr class="bg-light">
+                <th scope="col"><img src="assets/svg/ico_sorting.svg" alt="sort">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Role Type</th>
+                <th scope="col">Status</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-light" *ngFor="let user of allUser" [routerLink]="['/user/detail',user.UserID]" appHighlight>
+                <td>{{user.Name}} </td>
+                <td>{{user.Email}} </td>
+                <td>{{user.Role}} </td>
+                <td *ngIf="user.Email !== null && user.Number !== null;else pending"><img src="assets/svg/ico_active.svg">Active</td>
+                <ng-template #pending>
+                  <td *ngIf="user.Email != null && user.Number === null;else inactive"><img src="assets/svg/ico_pending.svg">Pending</td>
+                  <ng-template #inactive>
+                      <td><img src="assets/svg/ico_inactive.svg">InActive</td>
+                  </ng-template>
+                </ng-template>
+                <!-- <td [ngSwitch]="status">
+                  <span *ngSwitchCase="'Active'">Active</span> 
+                  <span *ngSwitchCase="'Pending'">Active</span>  
+                  <span *ngSwitchCase="'InActive'">InActive</span>                      
+                </td> -->
+                
+                <td ><img src="assets/svg/ico_edit.svg" alt="" [routerLink]="['/user/modify',user.UserID]"></td>
+            </tr>
+        </tbody>
+    </table>
+    </div>        
+    
+    </div>
+      
+        <!-- Modal -->
+<div class="modal fade" id="staticBackdropadd" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="bg-light">
+          <app-add-user></app-add-user>
+      </div>
+    </div>
+  </div>
+</div>

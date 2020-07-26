@@ -1,0 +1,53 @@
+<!-- <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+            <span aria-hidden="true">&times;</span>
+        </div>
+        <div class="modal-body">  -->
+            <div class="container col-4 mt-5" data-dismiss="modal">
+                <div class="card border-dark mb-3" style="max-width: 18rem;" *ngIf="user != null">
+                    <div class="card-header bg-light">{{user.Name}}</div>
+                    <div class="card-body text-dark">
+                        <div class="card-text"><span class="text-warning">ID:</span> {{user.UserID}}</div>
+                        <div class="card-text"><span class="text-warning">Email:</span> {{user.Email}}</div>
+                        <div class="card-text"><span class="text-warning">Number:</span> {{user.Number}}</div>
+                        <div class="card-text"><span class="text-warning">Role:</span> {{user.Role}}</div>
+                    </div>
+                </div>
+                <div *ngIf="user != null">
+                    <button class="btn btn-warning text-light" (click)="onBackClick()">Back</button>
+                    <button class="btn btn-warning text-light" [routerLink]="['/user/modify',user.UserID]">Modify</button>
+                    <button class="btn btn-warning text-light" data-toggle="modal" data-target="#staticBackdrop">
+                        Delete
+                      </button>
+                </div> 
+            </div>  
+             
+            
+              <!-- Modal -->
+              <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="staticBackdropLabel">Delete</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Do you really want to delete the item
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                      <button type="button" class="btn btn-warning text-light" (click)="remove()" data-dismiss="modal">Yes</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+                
+                   
+     <!-- </div>
+</div>
+</div>  -->

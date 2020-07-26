@@ -1,0 +1,28 @@
+.CustomImage{
+    background: url(../../../assets/svg/ico_search.svg) no-repeat right 10px center;
+}
+
+.customTableStyle{
+        display : block;
+        height: 460px;
+        overflow-y : scroll;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: rgb(243, 240, 240); 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(151, 146, 146); 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555353; 
+  }
